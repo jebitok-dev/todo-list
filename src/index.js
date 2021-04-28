@@ -1,2 +1,5 @@
-const Fruits = { apples, mangoes, tomatoes };
-console.log(Fruits[1]);
+import {renderList} from './list';
+import {renderTask} from './task'
+
+let lists = JSON.parse(localStorage.getItem('task.lists')) || [];
+let selectedListId = localStorage.getItem()
