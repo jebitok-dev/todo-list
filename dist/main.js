@@ -1,0 +1,1 @@
+(()=>{const o={apples,mangoes,tomatoes};console.log(o[1])})();
