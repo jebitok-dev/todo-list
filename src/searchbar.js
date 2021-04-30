@@ -42,7 +42,7 @@ const searchTasks = (() => {
         for (let i = 0; i < searchedTasks.length; i++) {
             if (searchedTasks[i].priority === 'High') {
                 checkbox[i].style.border = '2px solid #96f542';
-            } else if (searchedTasks[i].priority === 'Medium'){
+            } else if (searchedTasks[i].priority === 'Medium') {
                 checkbox[i].style.border = '2px solid #96f542';
             } else {
                 checkbox[i].style.border = '2px solid #f5ad42';
@@ -55,6 +55,21 @@ const searchTasks = (() => {
             const taskElement = document.importNode(taskTemplate.content, true);
             const checkbox = taskElement.querySelector('input');
             checkbox.id = task.id;
-        })
+            checkbox.checked = task.complete;
+            const label = taskElement.querySelector('label');
+            label.htmlFor = task.id;
+
+            const lineBreak = document.createElement('br');
+            label.append(task.name, ', ', task.date, lineBreak, task.description);
+            const editButton = document.createElement('p');
+            editButton.innerHTML = `<i class='far fa-edit'></i>`;
+            editButton.classList.add('edit');
+            editButton.addEventListener('click', () => editTask(task, label));
+            const todoTask = taskElement.querySelector('.task');
+            todoTask.append(editButton);
+            tasksContainer.append(taskElement);
+        });
     }
-})
+})();
+
+export { searchTasks };
