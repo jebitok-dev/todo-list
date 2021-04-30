@@ -1,5 +1,5 @@
 import {renderList} from './list';
-import {renderTask} from './task'
+import { renderTask } from './task';
 
 let lists = JSON.parse(localStorage.getItem('task.lists')) || [];
 let selectedListId = localStorage.getItem('task.selectedListId');
@@ -167,7 +167,7 @@ clearCompleteTaskButton.addEventListener('click', (e) => {
     renderAndSave();
 });
 
-function openCloseUpdateTaskForm() {
+function openCloseAddTaskForm() {
     const h2 = document.querySelector('.container h2');
     const submitInput = document.querySelector(`input[type='submit']`);
 
@@ -257,4 +257,4 @@ hamburger.addEventListener('click', () => {
 
 render();
 
-export { lists, selectedListId, clearElement, listsContainer, renderLists, listDisplayContainer, listTitleElement, tasksContainer, taskTemplate, editTask, };
+export { lists, selectedListId, clearElement, renderLists, editTask, };
