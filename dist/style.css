@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+    --white: #f5fafa;
+    --blue: #007fff;
+    --darkslategray: #003459;
+    --green: #1cfeba;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    height: 92vh;
+    overflow-x: hidden;
+    background: var(--darkslategray);
+    color: var(--white);
+    font-family: "Poppins", sans-serif;
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    height: 8vh;
+    width: 100%;
+    background: var(--blue);
+}
+
+.hamburger {
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger div {
+    background: var(--white);
+    transition: 0.5s;
+    width: 2.5rem;
+    height: 3px;
+    margin: 5px;
+}
+
+.clicked .line1 {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.clicked .line2 {
+    opacity: 0;
+}
+
+.clicked .line3 {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+#menu .search-box {
+    margin: 0 auto;
+    position: relative;
+}
+
+#menu .search-icon {
+    position: relative;
+    color: #333;
+    right: 4rem;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+#menu .search-box input {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+    width: calc(20rem + 20vw);
+    height: 4rem;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    padding: 0 1rem;
+    background: #e4e4e4;
+    transition: 0.3s ease;
+}
+
+#menu .search-box input:focus {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    background: var(--white);
+}
+
+#main {
+    display: flex;
+}
+
+#sidebar {
+    height: 92vh;
+    width: 20%;
+    background: var(--white);
+    color: black;
+    transition: 0.6s;
+    z-index: 1;
+}
+
+#sidebar h2 {
+    padding: 3rem;
+    font-size: 2.5rem;
+    text-align: center;   
+}
+
+#sidebar .task-list {
+    padding: 2rem;
+}
+
+#sidebar .task-list h3 {
+    font-size: 2rem;
+}
+
+#sidebar .active-list {
+    font-weight: bolder;
+    color: var(--white);
+    background: var(--white);
+    border-radius: 0.4rem;
+}
+
+#sidebar .task-list ul {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+}
+
+#sidebar .task-list li {
+    list-style: none;
+    padding: 1rem;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#sidebar .task-list li:hover {
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 0.4rem;
+}
+
+#sidebar .task-list li:hover button {
+    background: var(--blue);
+}
+
+#sidebar .task-list form {
+    margin-top: 2.2rem;
+    display: flex;
+    background: var(--darkslategray);
+    outline: none;
+    border: none;
+    color: var(--blue);
+    border: 1px solid var(--white);
+    border-radius: 25px;
+    padding: 0.8rem;
+    font-weight: bolder;
+    transition: 0.3s ease;
+} 
+
+#sidebar .task form input {
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    border: none;
+    color: var(--white);
+    background: transparent;
+    padding: 0.2rem 1rem;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+#sidebar .task-list form #up-arrow {
+    font-size: 1.6rem;
+    margin-right: 1rem;
+}
+
+#sidebar .task-list form .btn:focus {
+    color: var(--white);
+}
+
+#sidebar .task-list form input:focus::placeholder {
+    opacity: 0.5;
+}
+
+#sidebar .task-list .delete-btn {
+    border: 1px solid var(--blue);
+    background: none;
+    color: var(--blue);
+    outline: none;
+    padding: 0.8rem 2.4rem;
+    margin: 1.2rem auto;
+    border-radius: 2.5rem;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s ease;
+}
+
+#sidebar .task-list ,.delete-btn:hover {
+    background: var(--darkslategray);
+    color: var(--white);
+    border: 1px solid var(--darkslategray);
+}
+
+#todos {
+    width: 70%;
+    margin: 0 auto;
+    background: var(--darkslategray);
+}
+
+#todos .todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+#todos .todo-header h2 {
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+}
+
+#todos .todo-header p {
+    font-size: 1.4rem;
+}
+
+#todos .todo-header p span {
+    color: lightgray;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 0 0.5rem;
+}
+
+#todos .todo {
+    margin: 0.8rem 0;
+    border-radius: 0.5rem;
+    background: var(--white);
+    color: black;
+}
+
+#todos .todo .todo-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#todos .todo .todo-content input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+#todos .todo .todo-content label {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin: 1rem 0 1rem 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#todos .todo .todo-content label::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 3rem;
+    top: 25%;
+    height: 2px;
+    background: #000;
+    transform: scale(0);
+}
+
+#todos .todo .todo-content .checkbox {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0.5rem 1rem;
+    cursor: pointer;
+    border: 2px solid #e4e4e4;
+    border-radius: 50%;
+}
+
+#todos .todo-content input:checked + label {
+    opacity: 0.7;
+}
+
+#todos .todo-content input:checked + label::after {
+    transform: scale(1);
+}
