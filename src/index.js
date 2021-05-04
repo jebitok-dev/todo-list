@@ -1,6 +1,25 @@
-import { renderList } from './list';
-import { renderTask } from './task';
+const listsContainer = document.querySelector('[data-lists]');
+const newListForm = document.querySelector('[data-new-list-form]');
+const newListInput = document.querySelector('[data-new-list-input]');
+const deleteListButton = document.querySelector('[data-delete-list-button]');
+const listDisplayContainer = document.querySelector('[data-list-display-container]');
+const listTitleElement = document.querySelector('[data-list-title]');
+const listCountElement = document.querySelector('[data-list-count]');
 
+const tasksContainer = document.querySelector('[data-tasks]');
+const tasksTemplate = document.querySelector('#task-template');
+const newTaskForm = document.querySelector('[data-new-task-form]');
+const newTaskInput = document.querySelector('[data-new-task-input]');
+const newTaskPriority = document.querySelector('#description');
+const clearCompleteTasksButton = document.querySelector(
+  '[data-clear-complete-tasks-button]'
+);
+
+function clearElement(element) {
+while (element.firstChild) {
+    element.removeChild(element.firstChild);
+}
+}
 const lists = JSON.parse(localStorage.getItem('task.lists')) || [];
 const selectedListId = localStorage.getItem('task.selectedListId');
 const overlay = document.querySelector('#overlay');
@@ -17,13 +36,13 @@ function renderAndSave() {
 
 function clearElement(element) {
   while (element.firstChild) {
-   element.removeChild(element.firstChild);
-}
+    element.removeChild(element.firstChild);
+  }
 }
 
 function renderTaskCount(selectedList) {
   const incompleteTaskCount = selectedList.tasks.filter(
-      (task) => !task.complete).length;
+     (task) => !task.complete).length;
   const taskString = incompleteTaskCount === 1 ? 'task' : 'tasks';
   listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 }
@@ -33,15 +52,15 @@ function colorTasks(selectedList) {
   const checkbox = [...document.querySelectorAll('.checkbox')];
   for (let i = 0; i < todos.length; i++) { 
     for (let i = 0; i < selectedList.tasks.length; i++) {
-        if (selectedList.tasks[i].priority === 'High') {
-            checkbox[i].getElementsByClassName.border = "2px solid #96f542";
-        } else if (selectedList.tasks[i].priority === 'Medium') {
-            checkbox[i].style.border = '2px solid #96f542';
-        } else {
-            checkbox[i].style.border = '2px solid #f5ad42';
-        }
+       if (selectedList.tasks[i].priority === 'High') {
+         checkbox[i].getElementsByClassName.border = "2px solid #96f542";
+       } else if (selectedList.tasks[i].priority === 'Medium') {
+         checkbox[i].style.border = '2px solid #96f542';
+       } else {
+         checkbox[i].style.border = '2px solid #f5ad42';
+       }
     }
-}
+  }
 }
 
 function render() {
