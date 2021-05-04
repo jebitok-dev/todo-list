@@ -15,11 +15,6 @@ const clearCompleteTasksButton = document.querySelector(
   '[data-clear-complete-tasks-button]'
 );
 
-function clearElement(element) {
-while (element.firstChild) {
-    element.removeChild(element.firstChild);
-}
-}
 const lists = JSON.parse(localStorage.getItem('task.lists')) || [];
 const selectedListId = localStorage.getItem('task.selectedListId');
 const overlay = document.querySelector('#overlay');
