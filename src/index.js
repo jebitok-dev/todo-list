@@ -37,7 +37,7 @@ function clearElement(element) {
 
 function renderTaskCount(selectedList) {
   const incompleteTaskCount = selectedList.tasks.filter(
-     (task) => !task.complete).length;
+    (task) => !task.complete).length;
   const taskString = incompleteTaskCount === 1 ? 'task' : 'tasks';
   listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 }
@@ -47,13 +47,13 @@ function colorTasks(selectedList) {
   const checkbox = [...document.querySelectorAll('.checkbox')];
   for (let i = 0; i < todos.length; i++) { 
     for (let i = 0; i < selectedList.tasks.length; i++) {
-       if (selectedList.tasks[i].priority === 'High') {
-         checkbox[i].getElementsByClassName.border = "2px solid #96f542";
-       } else if (selectedList.tasks[i].priority === 'Medium') {
-         checkbox[i].style.border = '2px solid #96f542';
-       } else {
-         checkbox[i].style.border = '2px solid #f5ad42';
-       }
+      if (selectedList.tasks[i].priority === 'High') {
+        checkbox[i].getElementsByClassName.border = "2px solid #96f542";
+      } else if (selectedList.tasks[i].priority === 'Medium') {
+        checkbox[i].style.border = '2px solid #96f542';
+      } else {
+        checkbox[i].style.border = '2px solid #f5ad42';
+      }
     }
   }
 }
@@ -79,10 +79,10 @@ function renderLists() {
     const listElement = document.createElement('li');
     listElement.innerText = list.name;
     listElement.dataset.listId = list.id;
-    if (list.id == selectedListId) {
-        listElement.classList.add('active-list');
+    if (list.id === selectedListId) {
+      listElement.classList.add('active-list');
     }
-    listsContainer.appendChild(listElement)
+      listsContainer.appendChild(listElement);
   });
 }
 
@@ -111,7 +111,7 @@ function renderTasks(selectedList) {
     const todoTask = taskElement.querySelector('.task');
     todoTask.append(editButton);
     tasksContainer.appendChild(taskElement);
-});
+  });
 }
 
 function editTask(task, label) {
@@ -122,7 +122,6 @@ function editTask(task, label) {
   newTaskDescription.value = task.description;
 
   newTaskForm.addEventListener('submit', () => {
-    console.log('daw');
     task.name = newTaskInput.value;
     task.date = newTaskDate;
     task.priority = newTaskPriority.value;
@@ -133,12 +132,12 @@ function editTask(task, label) {
 }
 newListForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const listName = newListInput.value;
-    if (listName == null || listName === '') return;
-    const list = createList();
-    newListInput.value = null;
-    lists.push(list);
-    renderAndSave();
+  const listName = newListInput.value;
+  if (listName == null || listName === '') return;
+  const list = createList();
+  newListInput.value = null;
+  lists.push(list);
+  renderAndSave();
 });
 
 function createList() {

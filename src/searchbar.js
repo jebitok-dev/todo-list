@@ -1,9 +1,9 @@
 import {
-    lists,
-    selectedListId,
-    clearElement,
-    renderLists,
-    editTask,
+  lists,
+  selectedListId,
+  clearElement,
+  renderLists,
+  editTask,
 } from './index';
 
 const searchTasks = (() => {
@@ -45,11 +45,11 @@ const searchTasks = (() => {
     const checkbox = [...document.querySelectorAll('./checkbox')];
     for (let i = 0; i < searchedTasks.length; i++) {
       if (searchedTasks[i].priority === 'High') {
-         checkbox[i].style.border = '2px solid #96f542';
+        checkbox[i].style.border = '2px solid #96f542';
       } else if (searchedTasks[i].priority === 'Medium') {
-         checkbox[i].style.border = '2px solid #96f542';
+        checkbox[i].style.border = '2px solid #96f542';
       } else {
-         checkbox[i].style.border = '2px solid #f5ad42';
+        checkbox[i].style.border = '2px solid #f5ad42';
       }
     }
   }
