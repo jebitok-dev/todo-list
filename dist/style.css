@@ -289,3 +289,279 @@ body {
 #todos .todo-content input:checked + label::after {
     transform: scale(1);
 }
+
+#todos .todo-content input:checked + label .checkbox {
+    background: var(--blue);
+    box-shadow: 0 0 0 0.2rem var(--blue);
+}
+
+#todos .below-todo {
+    padding: 1.5rem;
+}
+
+#todos .below-todo .btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+#todos .below-todo .add-btn {
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    color: var(--white);
+    font-weight: bolder;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#todos .below-todo .clear-btn {
+    font-family: "Poppins", sans-serif;
+    color: var(--blue);
+    background: var(--white);
+    outline: none;
+    border: none;
+    padding: 0.8rem 2.4rem;
+    border-radius: 2.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#todos .below-todo .clear-btn:hover {
+    color: var(--white);
+    background: var(--blue);
+}
+
+.edit {
+    float: right;
+    font-size: 1.4rem;
+    padding: 2rem 2rem 2rem 0;
+    transition: 0.3s ease;
+    cursor: pointer;
+    color: var(--blue);
+}
+
+.edit:hover {
+    color: var(--blue);
+}
+
+#modal {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35rem;
+    z-index: 3;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transform: scale(0);
+    transition: 0.5s ease;
+}
+
+.container form {
+    padding-top: 2rem;
+}
+
+.container h2 {
+    text-align: center;
+    padding: 1.5rem;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: -1.5rem -1.5rem 0 -1.5rem;
+    font-size: 3.5rem;
+    color: var(--blue);
+}
+
+.container .close {
+    position: absolute;
+    top: 0.2rem;
+    right: 1rem;
+    font-size: 3.5rem;
+    cursor: pointer;
+    transform: rotate(45deg);
+    transition: 0.3s ease;
+    color: var(--blue);
+}
+
+.container .close:hover {
+    color: #000;
+}
+
+.container label {
+    font-size: 1.6rem;
+    color: #000;
+}
+
+.container input[type="text"], select {
+    font-family: "Poppins", sans-serif;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 0;
+    background: #e4e4e4;
+    font-size: 1.4rem;
+    outline: 0;
+    width: 100%;
+}
+
+.container input[type="date"] {
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-bottom: 1rem;
+    border: none;
+    background: #e4e4e4;
+    padding: 1rem;
+    width: 100%;
+}
+
+.container textarea {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+    background: #e4e4e4;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    resize: none;
+    width: 100%;
+}
+
+.container input[type="submit"] {
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.6rem;
+    border: 1px solid var(--darkslategray);
+    color: var(--darkslategray);
+    letter-spacing: 0.1rem;
+    background: var(--white);
+    transition: 0.5s ease;
+}
+
+.container input[type="submit"]:hover {
+    background: var(--darkslategray);
+    color: var(--white);
+}
+
+#overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+@media screen and (max-width: 360px) {
+    #menu .search-box input {
+        height: 3rem;
+        width: calc(15rem + 20vw);
+    }
+
+    #todos .below-todo #clear-btn {
+        font-size: 1.2rem;
+        left: 23vw;
+    }
+
+    #modal .container {
+        width: 28rem;
+        margin: 0 auto;
+    }
+
+    #modal textarea {
+        height: 8rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    #menu .search-box {
+        height: 3.5rem;
+    }
+
+    #sidebar .task-list #delete-btn {
+        position: absolute;
+        bottom: 3%;
+    }
+
+    #todos .todo-header p {
+        font-size: 1rem;
+    }
+
+    #modal {
+        width: 30rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    #sidebar {
+        position: absolute;
+        left: -100%;
+    }
+
+    #sidebar.active {
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    #sidebar form {
+        position: absolute;
+        width: 92%;
+        bottom: 12%;
+    }
+
+    #sidebar .task-list .delete-btn {
+        position: absolute;
+        bottom: 5%;
+        width: 92%;
+    }
+
+    #todos .todo-lister {
+        height: 92vh;
+    }
+
+    #todos {
+        width: 90%;
+    }
+
+    #todos .below-todo .btns {
+        position: absolute;
+        left: calc(93vw - 25rem);
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) 
+{
+    #sidebar {
+        width: 30%;
+    }
+
+    #todos {
+        width: 60%;
+    }
+}
