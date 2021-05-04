@@ -1,3 +1,4 @@
+import { searchTasks } from './searchbar';
 const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
@@ -10,7 +11,9 @@ const tasksContainer = document.querySelector('[data-tasks]');
 const tasksTemplate = document.querySelector('#task-template');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
-const newTaskPriority = document.querySelector('#description');
+const newTaskDate = document.querySelector("#due-date");
+const newTaskPriority = document.querySelector('#priority');
+const newTaskDescription = document.querySelector("#description");
 const clearCompleteTasksButton = document.querySelector(
   '[data-clear-complete-tasks-button]'
 );
@@ -18,7 +21,8 @@ const clearCompleteTasksButton = document.querySelector(
 const lists = JSON.parse(localStorage.getItem('task.lists')) || [];
 const selectedListId = localStorage.getItem('task.selectedListId');
 const overlay = document.querySelector('#overlay');
-const formContainer = document.querySelector('.close');
+const formContainer = document.querySelector('.container');
+const closeButton = document.querySelector(".close");
 const addButton = document.querySelector('.add-btn');
 const hamburger = document.querySelector('.hamburger');
 let modalOpen = false;
@@ -123,7 +127,7 @@ function editTask(task, label) {
 
   newTaskForm.addEventListener('submit', () => {
     task.name = newTaskInput.value;
-    task.date = newTaskDate;
+    task.date = newTaskDate.value;
     task.priority = newTaskPriority.value;
     task.description = newTaskDescription.value;
     label.innerHTML = `<span class='checkbox'></span>${task.name}<br>${task.date}<br>${task.description}`;
@@ -133,7 +137,7 @@ function editTask(task, label) {
 newListForm.addEventListener('submit', (e) => {
     e.preventDefault();
   const listName = newListInput.value;
-  if (listName == null || listName === '') return;
+  if (listName === null || listName === '') return;
   const list = createList();
   newListInput.value = null;
   lists.push(list);
@@ -270,4 +274,14 @@ hamburger.addEventListener('click', () => {
 
 render();
 
-export { lists, selectedListId, clearElement, renderLists, editTask, };
+export {
+    lists,
+    selectedListId,
+    clearElement,
+    listDisplayContainer,
+    listTitleElement,
+    tasksContainer,
+    tasksTemplate,
+    renderLists,
+    editTask,
+};
