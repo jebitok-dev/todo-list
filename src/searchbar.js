@@ -43,7 +43,7 @@ const searchTasks = (() => {
   function colorSearchedTasks(searchedTasks) {
     const todos = [...document.querySelectorAll('.todo')];
     const checkbox = [...document.querySelectorAll('./checkbox')];
-    for (let i = 0; i < searchedTasks.length; i++) {
+    for (let i = 0; i < searchedTasks.length; i += 1) {
       if (searchedTasks[i].priority === 'High') {
         checkbox[i].style.border = '2px solid #96f542';
       } else if (searchedTasks[i].priority === 'Medium') {

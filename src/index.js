@@ -11,9 +11,9 @@ const tasksContainer = document.querySelector('[data-tasks]');
 const tasksTemplate = document.querySelector('#task-template');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
-const newTaskDate = document.querySelector("#due-date");
+const newTaskDate = document.querySelector('#due-date');
 const newTaskPriority = document.querySelector('#priority');
-const newTaskDescription = document.querySelector("#description");
+const newTaskDescription = document.querySelector('#description');
 const clearCompleteTasksButton = document.querySelector(
   '[data-clear-complete-tasks-button]'
 );
@@ -22,7 +22,7 @@ const lists = JSON.parse(localStorage.getItem('task.lists')) || [];
 const selectedListId = localStorage.getItem('task.selectedListId');
 const overlay = document.querySelector('#overlay');
 const formContainer = document.querySelector('.container');
-const closeButton = document.querySelector(".close");
+const closeButton = document.querySelector('.close');
 const addButton = document.querySelector('.add-btn');
 const hamburger = document.querySelector('.hamburger');
 let modalOpen = false;
@@ -49,10 +49,10 @@ function renderTaskCount(selectedList) {
 function colorTasks(selectedList) {
   const todos = [...document.querySelectorAll('.todo')];
   const checkbox = [...document.querySelectorAll('.checkbox')];
-  for (let i = 0; i < todos.length; i++) { 
-    for (let i = 0; i < selectedList.tasks.length; i++) {
+  for (let i = 0; i < todos.length; i += 1) { 
+    for (let i = 0; i < selectedList.tasks.length; i += 1) {
       if (selectedList.tasks[i].priority === 'High') {
-        checkbox[i].getElementsByClassName.border = "2px solid #96f542";
+        checkbox[i].getElementsByClassName.border = '2px solid #96f542';
       } else if (selectedList.tasks[i].priority === 'Medium') {
         checkbox[i].style.border = '2px solid #96f542';
       } else {
@@ -86,7 +86,7 @@ function renderLists() {
     if (list.id === selectedListId) {
       listElement.classList.add('active-list');
     }
-      listsContainer.appendChild(listElement);
+    listsContainer.appendChild(listElement);
   });
 }
 
@@ -99,7 +99,7 @@ function renderTasks(selectedList) {
   }
 
   selectedList.tasks.forEach((task) => {
-    const taskElement = document.importNode(taskTemplate.content, true);
+    const taskElement = document.importNode(tasksTemplate.content, true);
     const checkbox = taskElement.querySelector('input');
     checkbox.id = task.id;
     checkbox.checked = task.complete;
@@ -219,7 +219,7 @@ function openCloseUpdateTaskForm() {
     formContainer.style.transform = 'scale(1)';
     overlay.style.opacity = 1;
     modalOpen = true;
-  };
+  }
 }
 
 function closeModal() {
