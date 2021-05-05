@@ -1,4 +1,7 @@
+/*eslint-disable */
 import { searchTasks } from './searchbar';
+/*eslint-enable */
+
 const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
@@ -21,14 +24,14 @@ const clearCompleteTasksButton = document.querySelector(
 let lists = JSON.parse(localStorage.getItem('task.lists')) || [];
 let selectedListId = localStorage.getItem('task.selectedListId');
 const overlay = document.querySelector('#overlay');
-const formContainer = document.querySelector('.container');
+const formContainer = document.querySelector('.container-l');
 const closeButton = document.querySelector('.close');
 const addButton = document.querySelector('.add-btn');
 const hamburger = document.querySelector('.hamburger');
 let modalOpen = false;
 
 function renderAndSave() {
-  renderLists();
+  render();
   localStorage.setItem('task.lists', JSON.stringify(lists));
   localStorage.setItem('task.selectedListId', selectedListId);
 }
@@ -52,7 +55,7 @@ function colorTasks(selectedList) {
   for (let i = 0; i < todos.length; i += 1) { 
     for (let i = 0; i < selectedList.tasks.length; i += 1) {
       if (selectedList.tasks[i].priority === 'High') {
-        checkbox[i].getElementsByClassName.border = '2px solid #96f542';
+        checkbox[i].style.border = '2px solid #96f542';
       } else if (selectedList.tasks[i].priority === 'Medium') {
         checkbox[i].style.border = '2px solid #96f542';
       } else {
@@ -92,7 +95,7 @@ function renderLists() {
 
 function renderTasks(selectedList) {
   if (selectedList.tasks.length === 0) {
-    listDisplayContainer.style.background = 'url(./images/table.svg) center no-repeat';
+    listDisplayContainer.style.background = 'url(./images/tasks.svg) center no-repeat';
     listDisplayContainer.style.backgroundSize = '35%';
   } else {
     listDisplayContainer.style.background = '';
@@ -119,7 +122,7 @@ function renderTasks(selectedList) {
 }
 
 function editTask(task, label) {
-  openCloseUpdateTaskForm();
+  openOrCloseUpdateTaskForm();
   newTaskInput.value = task.name;
   newTaskDate.value = task.date;
   newTaskPriority.value = task.priority;
@@ -134,6 +137,7 @@ function editTask(task, label) {
     renderAndSave();
   });
 }
+
 newListForm.addEventListener('submit', (e) => {
     e.preventDefault();
   const listName = newListInput.value;
@@ -151,7 +155,7 @@ function createList() {
 newTaskForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const taskName = newTaskInput.value;
-  const h2 = document.querySelector('.container h2');
+  const h2 = document.querySelector('.container-l h2');
   if (h2.textContent === 'Update Task') return;
   if (taskName === null || taskName === '') return;
   const task = createTask();
@@ -172,19 +176,19 @@ function createTask() {
   };
 }
 
-deleteListButton.addEventListener('click', (e) => {
+deleteListButton.addEventListener('click', () => {
   lists = lists.filter((list) => list.id !== selectedListId);
   selectedListId = null;
   renderAndSave();
 });
 
-clearCompleteTasksButton.addEventListener('click', (e) => {
+clearCompleteTasksButton.addEventListener('click', () => {
   const selectedList = lists.find((list) => list.id === selectedListId);
   selectedListId.tasks = selectedList.tasks.filter((task) => !task.complete);
   renderAndSave();
 });
 
-function openCloseAddTaskForm() {
+function openOrCloseAddTaskForm() {
   const h2 = document.querySelector('.container h2');
   const submitInput = document.querySelector(`input[type='submit']`);
 
@@ -203,7 +207,7 @@ function openCloseAddTaskForm() {
   }
 }
 
-function openCloseUpdateTaskForm() {
+function openOrCloseUpdateTaskForm() {
   const h2 = document.querySelector('.container h2');
   const submitInput = document.querySelector(`input[type='submit']`);
 
@@ -248,7 +252,7 @@ tasksContainer.addEventListener('click', (e) => {
 
 addButton.addEventListener('click', () => {
   newTaskForm.reset();
-  openCloseUpdateTaskForm();
+  openOrCloseAddTaskForm();
 
   if (modalOpen) {
     addButton.style.background = '#d5ba21';
@@ -261,6 +265,14 @@ addButton.addEventListener('click', () => {
 
 closeButton.addEventListener('click', () => {
   closeModal();
+  addButton.style.background = 'transparent';
+  addButton.style.transform = 'rotate(0)';
+  modalOpen = false;
+});
+
+formContainer.addEventListener('submit', (e) => {
+  e.preventDefault();
+  openOrCloseAddTaskForm();
   addButton.style.background = 'transparent';
   addButton.style.transform = 'rotate(0)';
   modalOpen = false;

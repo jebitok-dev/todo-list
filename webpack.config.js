@@ -1,3 +1,4 @@
+/*eslint-disable */
 const path = require('path');
 
 module.exports = {
@@ -10,3 +11,4 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
 };
+/*eslint-enable */

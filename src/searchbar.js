@@ -46,7 +46,9 @@ const searchTasks = (() => {
   }
 
   function colorSearchedTasks(searchedTasks) {
+    /*eslint-disable */
     const todos = [...document.querySelectorAll('.todo')];
+    /*eslint-enable */
     const checkbox = [...document.querySelectorAll('./checkbox')];
     for (let i = 0; i < searchedTasks.length; i += 1) {
       if (searchedTasks[i].priority === 'High') {
