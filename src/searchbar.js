@@ -2,7 +2,12 @@ import {
   lists,
   selectedListId,
   clearElement,
+  listsContainer,
   renderLists,
+  listDisplayContainer,
+  listTitleElement,
+  tasksContainer,
+  taskTemplate,
   editTask,
 } from './index';
 
@@ -35,7 +40,7 @@ const searchTasks = (() => {
       listDisplayContainer.style.display = '';
       listTitleElement.innerHTML = `<i class='fas fa-tasks'></i> ${selectedList.name}`;
       clearElement(tasksContainer);
-      renderSearchTasks(searchedTasks);
+      renderSearchedTasks(searchedTasks);
       colorSearchedTasks(searchedTasks);
     }
   }

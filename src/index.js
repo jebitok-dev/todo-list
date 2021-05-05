@@ -18,8 +18,8 @@ const clearCompleteTasksButton = document.querySelector(
   '[data-clear-complete-tasks-button]'
 );
 
-const lists = JSON.parse(localStorage.getItem('task.lists')) || [];
-const selectedListId = localStorage.getItem('task.selectedListId');
+let lists = JSON.parse(localStorage.getItem('task.lists')) || [];
+let selectedListId = localStorage.getItem('task.selectedListId');
 const overlay = document.querySelector('#overlay');
 const formContainer = document.querySelector('.container');
 const closeButton = document.querySelector('.close');
@@ -28,7 +28,7 @@ const hamburger = document.querySelector('.hamburger');
 let modalOpen = false;
 
 function renderAndSave() {
-  renderList();
+  renderLists();
   localStorage.setItem('task.lists', JSON.stringify(lists));
   localStorage.setItem('task.selectedListId', selectedListId);
 }
@@ -178,7 +178,7 @@ deleteListButton.addEventListener('click', (e) => {
   renderAndSave();
 });
 
-clearCompleteTaskButton.addEventListener('click', (e) => {
+clearCompleteTasksButton.addEventListener('click', (e) => {
   const selectedList = lists.find((list) => list.id === selectedListId);
   selectedListId.tasks = selectedList.tasks.filter((task) => !task.complete);
   renderAndSave();

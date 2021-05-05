@@ -360,7 +360,7 @@ body {
     z-index: 3;
 }
 
-.container {
+.container-l {
     display: flex;
     flex-direction: column;
     background: var(--white);
@@ -370,11 +370,11 @@ body {
     transition: 0.5s ease;
 }
 
-.container form {
+.container-l form {
     padding-top: 2rem;
 }
 
-.container h2 {
+.container-l h2 {
     text-align: center;
     padding: 1.5rem;
     border-top-left-radius: 10px;
@@ -384,7 +384,7 @@ body {
     color: var(--blue);
 }
 
-.container .close {
+.container-l .close {
     position: absolute;
     top: 0.2rem;
     right: 1rem;
@@ -395,16 +395,16 @@ body {
     color: var(--blue);
 }
 
-.container .close:hover {
+.container-l .close:hover {
     color: #000;
 }
 
-.container label {
+.container-l label {
     font-size: 1.6rem;
     color: #000;
 }
 
-.container input[type="text"], select {
+.container-l input[type="text"], select {
     font-family: "Poppins", sans-serif;
     padding: 1rem;
     margin-bottom: 2rem;
@@ -415,7 +415,7 @@ body {
     width: 100%;
 }
 
-.container input[type="date"] {
+.container-l input[type="date"] {
     font-family: "Poppins", sans-serif;
     display: block;
     margin-bottom: 1rem;
@@ -425,7 +425,7 @@ body {
     width: 100%;
 }
 
-.container textarea {
+.container-l textarea {
     font-family: "Poppins", sans-serif;
     font-size: 1.4rem;
     background: #e4e4e4;
@@ -436,7 +436,7 @@ body {
     width: 100%;
 }
 
-.container input[type="submit"] {
+.container-l input[type="submit"] {
     padding: 1rem;
     margin-top: 1rem;
     border: 0;
@@ -451,7 +451,7 @@ body {
     transition: 0.5s ease;
 }
 
-.container input[type="submit"]:hover {
+.container-l input[type="submit"]:hover {
     background: var(--darkslategray);
     color: var(--white);
 }
@@ -479,7 +479,7 @@ body {
         left: 23vw;
     }
 
-    #modal .container {
+    #modal .container-l {
         width: 28rem;
         margin: 0 auto;
     }
