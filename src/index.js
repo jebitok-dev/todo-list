@@ -1,5 +1,5 @@
 /*eslint-disable */
-import { searchTasks } from "./searchbar";
+import Todos from "./todo";
 /*eslint-enable */
 
 const listsContainer = document.querySelector("[data-lists]");
