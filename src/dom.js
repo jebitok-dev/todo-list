@@ -1,5 +1,5 @@
-import Task from './task';
-import Todo from './todo';
+import Todos from './todo';
+import SVG from './svg';
 
 const tasksDOM = (index) => {
     const todowrap = document.createElement('div');
