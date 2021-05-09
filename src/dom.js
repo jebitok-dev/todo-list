@@ -1,6 +1,7 @@
 import Todos from './todo';
 import SVG from './svg';
 
+// /* eslint-disable */
 const tasksDOM = (index) => {
     const todowrap = document.createElement('div');
     todowrap.classList.add('todowrap');
@@ -73,6 +74,7 @@ const tasksDOM = (index) => {
     });
     return todowrap;
 };
+// /* eslint-enable */
 
 const barDOM = (index) => {
     const bar = document.createElement('div');
