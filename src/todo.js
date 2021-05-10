@@ -1,8 +1,10 @@
+import Task from './task';
+
 const Todo = (title, description) => {
     const Tasks = [];
     
     const addTask = (title, description, dueDate, priority, notes, checked) => {
-        Tasks.push(Tasks(title, description, dueDate, priority, notes, checked));
+        Tasks.push(Task(title, description, dueDate, priority, notes, checked));
     };
 
     const getAllTasks = () => Tasks;

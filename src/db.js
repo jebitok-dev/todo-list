@@ -5,7 +5,7 @@ const LocalDB = (() => {
         localStorage.setItem('todos', JSON.stringify(todos));
     };
 
-    const saveTodo = (title, Tasks) => {
+    const saveTask = (title, Tasks) => {
         localStorage.setItem(title, JSON.stringify(Tasks));
     };
 
@@ -37,7 +37,7 @@ const LocalDB = (() => {
         localStorage.removeItem(title);
     };
     return {
-        saveTodo,
+        saveTask,
         getTodos,
         removeTasks,
         saveTodos,

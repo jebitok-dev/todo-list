@@ -1,11 +1,12 @@
-import Todos from './todo';
+import Todos from './todos';
+import { format, parse } from 'date-fns';
 import SVG from './svg';
 
 // /* eslint-disable */
 const tasksDOM = (index) => {
-    const todowrap = document.createElement('div');
-    todowrap.classList.add('todowrap');
-    Todo.getTodo(index).getAllTasks().forEach((Task, j) => {
+    const taskwrap = document.createElement('div');
+    taskwrap.classList.add('taskwrap');
+    Todos.getTodo(index).getAllTasks().forEach((Task, j) => {
         const todo = document.createElement('div');
         todo.classList.add('todo');
         switch (Task.priority.toLowerCase()) {
@@ -18,7 +19,7 @@ const tasksDOM = (index) => {
         todoInfo.classList.add('todo-info');
         const todoButtons = document.createElement('div');
         todoButtons.classList.add('todo-btns');
-        todo.dataset.id = j;
+        todoButtons.dataset.id = j;
         const pTitle = document.createElement('p');
         pTitle.classList.add('todo-description');
         pTitle.textContent = Task.description;
@@ -36,8 +37,8 @@ const tasksDOM = (index) => {
         btnDelete.id = 'btnBorrarTask';
         btnEdit.id = 'btnEditorTask';
         checkbox.addEventListener('click', () => {
-            Todo.changeCheck(index, j, checkbox.checked);
-            const todos = document.querySelector('.todos');
+            Todos.changeCheck(index, j, checkbox.checked);
+            const todos = document.querySelector('.todosp');
             while (todos.firstChild) {
                 todos.removeChild(todos.lastChild);
             }
@@ -47,15 +48,15 @@ const tasksDOM = (index) => {
         btnEdit.innerHTML = SVG.editBtn();
         btnDelete.innerHTML = SVG.deleteBtn();
         btnEdit.addEventListener('click', () => {
-            const todowrap = document.querySelector('.todowrap');
-            while (todowrap.firstChild) {
-                todowrap.removeChild(todowrap.lastChild);
+            const taskwrap = document.querySelector('.taskwrap');
+            while (taskwrap.firstChild) {
+                taskwrap.removeChild(taskwrap.lastChild);
             }
-            todowrap.appendChild(configTaskDOM(index, j, Task));
+            taskwrap.appendChild(configTaskDOM(index, j, Task));
         });
         btnDelete.addEventListener('click', () => {
-            const todos = document.querySelector('.todos');
-            todos.deleteTaskFromProject(index, j);
+            const todos = document.querySelector('.todosp');
+            Todos.deleteTaskFromTodo(index, j);
             while (todos.firstChild) {
                 todos.removeChild(todos.lastChild);
             }
@@ -70,9 +71,9 @@ const tasksDOM = (index) => {
         todoInfo.appendChild(pDate);
         todo.appendChild(todoInfo);
         todo.appendChild(todoButtons);
-        todowrap.appendChild(todo);
+        taskwrap.appendChild(todo);
     });
-    return todowrap;
+    return taskwrap;
 };
 // /* eslint-enable */
 
@@ -89,8 +90,8 @@ const barDOM = (index) => {
     bar.appendChild(buttonAdd);
     buttonAdd.addEventListener('click', () => {
         if (input.value !== '') {
-            const todos = document.querySelector('.todos');
-            Todos.addTodoOnProject(index, input.value);
+            const todos = document.querySelector('.todosp');
+            Todos.AddTaskOnTodo(index, input.value);
             while (todos.firstChild) {
                 todos.removeChild(todos.lastChild);
             }
@@ -103,7 +104,7 @@ const barDOM = (index) => {
     return bar;
 };
 
-const configTaskDom = (index, j, Task) => {
+const configTaskDOM = (index, j, Task) => {
     const todoConfig = document.createElement('div');
     todoConfig.classList.add('todo-config');
     todoConfig.classList.add('todo');
@@ -120,9 +121,9 @@ const configTaskDom = (index, j, Task) => {
     const inputDate = document.createElement('input');
     inputDate.classList.add('todo-input');
     inputDate.type = 'datetime-local';
-    inputDate.value = format(Task.dueDate, 'yyyy-MM-dd'T'HH:mm');
+    inputDate.value = format(Task.dueDate, "yyyy-MM-dd'T'HH:mm");
     inputDate.id = 'inputDate';
-    const inputLists = document.createElement('button');
+    const inputLists = document.createElement('textarea');
     inputLists.rows = 5;
     inputLists.id = 'inputLists';
     inputLists.value = Task.lists;
@@ -139,11 +140,38 @@ const configTaskDom = (index, j, Task) => {
     const HighPriority = document.createElement('div');
     HighPriority.classList.add('child-radio');
     const radioLowPriority = document.createElement('input');
+    radioLowPriority.type = 'radio';
+    radioLowPriority.name = 'priority';
+    radioLowPriority.id = 'radioLow';
+    radioLowPriority.value = 'Low';
+    const labelLowPriority = document.createElement('label');
+    labelLowPriority.textContent = 'Low:';
+    labelLowPriority.htmlFor = 'radioLow';
+    LowPriority.appendChild(labelLowPriority);
+    LowPriority.appendChild(radioLowPriority);
     radioLowPriority.addEventListener('click', (e) => {
         if (e.target.checked) {
             todoConfig.classList.remove('high-p');
-            todoConfig.classList.remove('low-p');
             todoConfig.classList.remove('medium-p');
+            todoConfig.classList.add('low-p');
+            selection = radioLowPriority.value;
+        }
+    });
+    const radioMediumPriority = document.createElement('input');
+    radioMediumPriority.type = 'radio';
+    radioMediumPriority.name = 'priority';
+    radioMediumPriority.id = 'radioMedium';
+    radioMediumPriority.value = 'Medium';
+    const labelMediumPriority = document.createElement('label');
+    labelMediumPriority.textContent = 'Medium';
+    labelMediumPriority.htmlFor = 'radioMedium';
+    MediumPriority.appendChild(labelMediumPriority);
+    MediumPriority.appendChild(radioMediumPriority);
+    radioMediumPriority.addEventListener('click', (e) => {
+        if (e.target.checked) {
+            todoConfig.classList.remove('high-p');
+            todoConfig.classList.remove('low-p');
+            todoConfig.classList.add('medium-p');
             selection = radioMediumPriority.value;
         }
     });
@@ -178,8 +206,8 @@ const configTaskDom = (index, j, Task) => {
     }
     btnSubmit.addEventListener('click', () => {
         if (inputTitle.value !== '' && inputDesc.value !== '' && inputDate.value !== '' && inputLists.value !== '') {
-            Todo.editTaskFromTodo(index, j, inputTitle.value, inputDesc.value, parse(inputDate.value, "yyyy-MM-dd'T'HH:mm", new Date()), inputLists.value, selection);
-            const todos = document.querySelector('.todos');
+            Todos.editTaskFromTodo(index, j, inputTitle.value, inputDesc.value, parse(inputDate.value, "yyyy-MM-dd'T'HH:mm", new Date()), inputLists.value, selection);
+            const todos = document.querySelector('.todosp');
             while (todos.lastChild) {
                 todos.removeChild(todos.lastChild);
             }
@@ -212,4 +240,4 @@ const configTaskDom = (index, j, Task) => {
     return todoConfig;
 };
 
-export { barDOM, tasksDOM, configTaskDom };
+export { barDOM, tasksDOM, configTaskDOM };
