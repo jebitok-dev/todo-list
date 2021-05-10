@@ -34,7 +34,7 @@ body {
 }
 
 .todo-details {
-  background-color: var(--darkslategray);
+  background-color: var(--green);
   height: 30vh;
 }
 
@@ -76,7 +76,7 @@ body {
   transition-duration: 200ms;
 }
 
-#btnEditarToDo {
+#btnEditarTask {
   margin: 2rem 0.5rem;
   padding: 0.8rem;
   font-size: 0.9rem;
@@ -110,7 +110,7 @@ body {
   background-color: var(--grey);
 }
 
-#btnBorrarToDo {
+#btnBorrarTask {
   margin: 2rem 0.5rem;
   padding: 0.8rem;
   font-size: 0.9rem;
@@ -240,7 +240,7 @@ input:focus {
   background-color: var(--grey);
 }
 
-.todowrap {
+.taskwrap {
   margin-bottom: 4rem;
 }
 
