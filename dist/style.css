@@ -76,7 +76,7 @@ body {
   transition-duration: 200ms;
 }
 
-#btnEditarTask {
+#btnEditorTask {
   margin: 2rem 0.5rem;
   padding: 0.8rem;
   font-size: 0.9rem;
@@ -87,7 +87,7 @@ body {
   transition-duration: 200ms;
 }
 
-#btnEditarToDo:hover {
+#btnEditarTask:hover {
   background-color: var(--grey);
 }
 
@@ -121,7 +121,7 @@ body {
   transition-duration: 200ms;
 }
 
-#btnBorrarToDo:hover {
+#btnBorrarTask:hover {
   background-color: var(--grey);
 }
 
@@ -278,7 +278,7 @@ input:focus {
   display: flex;
 }
 
-#btnEditToDo {
+#btnEditTask {
   margin: 1rem;
 }
 

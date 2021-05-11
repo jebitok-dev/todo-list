@@ -86,7 +86,7 @@ const barDOM = (index) => {
     const buttonAdd = document.createElement('button');
     buttonAdd.classList.add('btn-fixed');
     buttonAdd.textContent = '+';
-    bar.appendChild('input');
+    bar.appendChild(input);
     bar.appendChild(buttonAdd);
     buttonAdd.addEventListener('click', () => {
         if (input.value !== '') {
@@ -128,7 +128,7 @@ const configTaskDOM = (index, j, Task) => {
     inputLists.id = 'inputLists';
     inputLists.value = Task.lists;
     const btnSubmit = document.createElement('button');
-    btnSubmit.id = 'btnEditTask';
+    btnSubmit.id = 'btnEdit';
     btnSubmit.textContent = 'Submit';
     let selection;
     const radios = document.createElement('div');
@@ -225,7 +225,7 @@ const configTaskDOM = (index, j, Task) => {
     labelDate.textContent = 'Due Date';
     labelDate.htmlFor = 'inputDate';
     const labelLists = document.createElement('label');
-    labelLists.textContent = 'Lists';
+    labelLists.textContent = 'Lists:';
     labelLists.htmlFor = 'inputLists';
     todoConfig.appendChild(labelTitle);
     todoConfig.appendChild(inputTitle);

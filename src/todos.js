@@ -26,7 +26,7 @@ const Todos = (() => {
         const hours = today.getHours();
         const minutes = today.getMinutes();
         todos[index].addTask(title, '', new Date(year, month, day, hours, minutes), 'Low', '', false);
-        LocalDB.saveTask(todos[index].title, todos[index].getAllTodos());
+        LocalDB.saveTask(todos[index].title, todos[index].getAllTasks());
     };
 
     const getTodo = (index) => todos[index];

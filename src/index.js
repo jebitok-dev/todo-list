@@ -8,7 +8,7 @@ const ManipulateDOM = (() => {
     Todos.getAllTodos().forEach((todo, index) => {
       const todoDOM = document.createElement('div');
       todoDOM.dataset.id = index;
-      todoDOM.classList.add('todo');
+      todoDOM.classList.add('project');
       const titleDOM = document.createElement('p');
       titleDOM.classList.add('title');
       titleDOM.textContent = todo.title;
