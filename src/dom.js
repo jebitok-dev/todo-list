@@ -21,8 +21,8 @@ const tasksDOM = (index) => {
         todoButtons.classList.add('todo-btns');
         todoButtons.dataset.id = j;
         const pTitle = document.createElement('p');
-        pTitle.classList.add('todo-description');
-        pTitle.textContent = Task.description;
+        pTitle.classList.add('todo-title');
+        pTitle.textContent = Task.title;
         const pDescription = document.createElement('p');
         pDescription.classList.add('todo-description');
         pDescription.textContent = Task.description;
@@ -178,11 +178,11 @@ const configTaskDOM = (index, j, Task) => {
     const radioHighPriority = document.createElement('input');
     radioHighPriority.type = 'radio';
     radioHighPriority.name = 'priority';
-    radioHighPriority.id = 'rdLow';
+    radioHighPriority.id = 'radioLow';
     radioHighPriority.value = 'High';
     const labelHighPriority = document.createElement('label');
     labelHighPriority.textContent = 'High';
-    labelHighPriority.htmlFor = 'rdLow';
+    labelHighPriority.htmlFor = 'radioLow';
     HighPriority.appendChild(labelHighPriority);
     HighPriority.appendChild(radioHighPriority);
     radioHighPriority.addEventListener('click', (e) => {
@@ -208,7 +208,7 @@ const configTaskDOM = (index, j, Task) => {
         if (inputTitle.value !== '' && inputDesc.value !== '' && inputDate.value !== '' && inputLists.value !== '') {
             Todos.editTaskFromTodo(index, j, inputTitle.value, inputDesc.value, parse(inputDate.value, "yyyy-MM-dd'T'HH:mm", new Date()), inputLists.value, selection);
             const todos = document.querySelector('.todosp');
-            while (todos.lastChild) {
+            while (todos.firstChild) {
                 todos.removeChild(todos.lastChild);
             }
             todos.appendChild(tasksDOM(index));
