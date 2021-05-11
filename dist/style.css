@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --white: #f5fafa;
+  --grey: #c4cbcf;
+  --darkslategray: #34eb83;
+  --green: #1cfeba;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.projects {
+  background-color: var(--darkslategray);
+  width: 25%;
+}
+
+.other-side {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.todo-details {
+  background-color: var(--green);
+  height: 30vh;
+}
+
+.todosp {
+  background-color: var(--darkslategray);
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-aside {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: var(--green);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.todo-options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+#btnEdit {
+  margin: 2rem 0.5rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  background-color: var(--grey);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+#btnEditorTask {
+  margin: 2rem 0.5rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  background-color: var(--grey);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+#btnEditarTask:hover {
+  background-color: var(--grey);
+}
+
+#btnEdit:hover {
+  background-color: var(--grey);
+}
+
+#btnDelete {
+  margin: 2rem 0.5rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+#btnDelete:hover {
+  background-color: var(--grey);
+}
+
+#btnBorrarTask {
+  margin: 2rem 0.5rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+#btnBorrarTask:hover {
+  background-color: var(--grey);
+}
+
+.btn-aside:hover {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.list-todos {
+  display: flex;
+  flex-direction: column;
+}
+
+.high-p {
+  background-color: #db1f1f;
+  color: white;
+}
+
+.medium-p {
+  background-color: #e6e217;
+}
+
+.low-p {
+  background-color: var(--green);
+  color: white;
+}
+
+.project {
+  background-color: var(--green);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+.project:hover {
+  background-color: var(--grey);
+}
+
+.form-add {
+  display: flex;
+  flex-direction: column;
+  background-color: #acb0bd;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+label {
+  padding: 0.8rem;
+}
+
+.form-add > input[type="text"] {
+  border: solid 0.15rem #416165;
+  border-radius: 1rem;
+  padding: 0.2rem;
+  font-size: 1rem;
+  transition-duration: 200ms;
+}
+
+.form-add > input[type="text"]:hover {
+  transform: scale(1.03);
+}
+
+input:focus {
+  outline: none;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.bar {
+  display: flex;
+  height: 7vh;
+  position: fixed;
+  width: 70%;
+  bottom: 0;
+  right: 0;
+  margin: 1% 2%;
+  border-radius: 1rem;
+  background-color: white;
+  transition-duration: 200ms;
+}
+
+.bar:hover {
+  box-shadow: 0 0 0.5rem --var(--grey);
+}
+
+.text-fixed {
+  padding: 0.8rem;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  border: none;
+  width: 100%;
+}
+
+.btn-fixed {
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  width: 3rem;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-fixed:hover {
+  background-color: var(--grey);
+}
+
+.taskwrap {
+  margin-bottom: 4rem;
+}
+
+.todo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.todo-description {
+  font-size: 0.8rem;
+  margin-top: 0;
+}
+
+.todo-date {
+  font-size: 0.8rem;
+  margin-top: 0;
+}
+
+.todo-btns {
+  display: flex;
+}
+
+.todo-config {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+
+.todo-buttons {
+  display: flex;
+}
+
+#btnEditTask {
+  margin: 1rem;
+}
+
+.priority-radios {
+  display: flex;
+}
+
+.child-radio {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .projects {
+    width: 100%;
+  }
+
+  .other-side {
+    width: 100%;
+  }
+
+  .todo-options {
+    font-size: 0.6rem;
+  }
+
+  .bar {
+    width: 95%;
+  }
+
+  .todosp {
+    min-height: 50vh;
+  }
+}
