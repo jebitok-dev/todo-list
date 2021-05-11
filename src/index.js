@@ -1,7 +1,7 @@
 import Todos from './todos';
 import SVG from './svg';
 import { barDOM, tasksDOM } from './dom';
-/*eslint-disable */
+// /*eslint-disable */
 const ManipulateDOM = (() => {
   const putTodos = () => {
     const todosDOM = document.querySelector('.list-todos');
@@ -34,7 +34,7 @@ const ManipulateDOM = (() => {
     });
   };
 
-  /*eslint-enable */
+  // /*eslint-enable */
 
   const TodoFieldsDOM = (todo, index) => {
     let wrap = document.createElement('div');
@@ -54,7 +54,7 @@ const ManipulateDOM = (() => {
     btnEdit.addEventListener('click', () => {
       const todosDOM = document.querySelector('.list-todos');
       document.querySelector('#btnAddTodo').classList.add('hidden');
-      document.querySelector('#btnAddTodo').classList.remove('hidden');
+      document.querySelector('#btnBackTodo').classList.remove('hidden');
       while (todosDOM.firstChild) {
         todosDOM.removeChild(todosDOM.lastChild)
       }
@@ -151,7 +151,7 @@ const ManipulateDOM = (() => {
     form.appendChild(Error);
     btnSubmit.addEventListener('click', () => {
       if(textTitle.value !== '' && textDesc.value !== '') {
-        Todos.addProject(textTitle.value, textDesc.value);
+        Todos.addTodo(textTitle.value, textDesc.value);
         reloadTodos();
         document.querySelector('#btnBackTodo').classList.add('hidden');
         document.querySelector('#btnAddTodo').classList.remove('hidden');
