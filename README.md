@@ -21,7 +21,7 @@ To get this project up and running locally, you must already have ruby and rails
 - Run `cd todo-list`
 ```
 
-<!-- - [Live Version](https://deal-restaurantjs.netlify.app/) -->
+- [Live Version](https://todo-list-vjs.netlify.app/)
 
 <!-- ### Run Tests -->
 
