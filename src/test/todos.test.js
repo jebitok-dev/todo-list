@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import Todos from '../src/todos';
+import Todos from '../todos';
 
 test('should add todo', () => {
     const mainTodo = Todos.addTodo('code', 'write code');

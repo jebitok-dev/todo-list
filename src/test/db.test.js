@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import LocalDB from '../src/db';
+import LocalDB from '../db';
 
 test('should add todo', () => {
     const dbTodo = LocalDB.saveTodos();
