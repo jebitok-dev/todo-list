@@ -1,5 +1,5 @@
 /* eslint-disable */
-import SVG from '../src/svg';
+import SVG from '../svg';
 
 const svg = SVG;
 
