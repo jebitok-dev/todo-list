@@ -7,6 +7,11 @@ test('should add todo', () => {
     expect(mainTodo).toBe(mainTodo);
 });
 
+test('edit todo', () => {
+    const mainTodo = Todos.editTodo(0, 'OSS', 'Open-source');
+    expect(mainTodo).toBe(mainTodo);
+});
+
 test('should remove todo', () => {
     const mainTodo = Todos.removeTodo(0, 'tracks', 'back-end');
     expect(mainTodo).toBe(mainTodo);

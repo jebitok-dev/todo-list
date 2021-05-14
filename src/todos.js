@@ -14,7 +14,7 @@ const Todos = (() => {
         todos[index].title = title;
         todos[index].description = description;
         LocalDB.saveTodos(todos);
-        LocalDB.saveTask(todos[index].title, todos[index].getAllTodos());
+        LocalDB.saveTask(todos[index].title, todos[index].getAllTasks());
     };
 
     const getAllTodos = () => todos;
