@@ -26,7 +26,7 @@ To get this project up and running locally, you must already have ruby and rails
 
 ### Run Tests
 Tests for modules written using **Jest**
-- ``$ npm run test`` or ``$ yarn test``
+- ``$ npm run test`` or ``$ yarn test`` or ``$ npx jest --coverage``
 
 ## Author
 
