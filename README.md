@@ -6,6 +6,7 @@ Vanilla JavaScript Project that covers objects, OOP, functional programming and 
 ## Built With
 
 - JavaScript
+- Jest for testing
 
 ## Getting Started
 
@@ -23,7 +24,9 @@ To get this project up and running locally, you must already have ruby and rails
 
 - [Live Version](https://todo-list-vjs.netlify.app/)
 
-<!-- ### Run Tests -->
+### Run Tests
+Tests for modules written using **Jest**
+- ``$ npm run test`` or ``$ yarn test``
 
 ## Author
 
