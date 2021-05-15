@@ -38,7 +38,8 @@ const Todos = (() => {
 
     const deleteTaskFromTodo = (indexTodo, indexTask) => {
         todos[indexTodo].removeTask(indexTask);
-        LocalDB.saveTask(todos[indexTodo].title, todos[indexTodo].getAllTasks());
+        LocalDB.saveTask(todos[indexTodo].title,
+            todos[indexTodo].getAllTasks());
     };
 
     const editTaskFromTodo = (indexTodo, indexTask, title, description, dueDate, lists, priority) => {
