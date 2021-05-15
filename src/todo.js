@@ -24,7 +24,7 @@ const Todo = (title, description) => {
     };
 
     const changeCheckedTask = (index, checked) => {
-        Tasks[index].checked = checked;
+        Tasks[index] = checked;
     };
 
     return {
